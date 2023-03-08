@@ -8,7 +8,7 @@ run: extract cursed-apple
 	./cursed-apple frames/%04d.pgm 1 6572 33333
 
 extract: apple.webm
-	mkdir frames
+	mkdir -p frames
 	ffmpeg -i apple.webm -vf scale=240:90 frames/%04d.pgm
 
 apple.webm:
