@@ -4,10 +4,10 @@ LFLAGS = -fsanitize=undefined,address `pkg-config --libs ncurses`
 
 all: run
 
-run: extract cursed-apple
+run: frames cursed-apple
 	./cursed-apple frames/%04d.pgm 1 6572 33333
 
-extract: apple.webm
+frames: apple.webm
 	mkdir -p frames
 	ffmpeg -i apple.webm -vf scale=240:90 frames/%04d.pgm
 
@@ -26,4 +26,4 @@ clean:
 format:
 	clang-format -i -style=file *.[ch]
 
-.PHONY: all clean format run extract
+.PHONY: all clean format run
